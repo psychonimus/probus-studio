@@ -1,0 +1,342 @@
+/* ─────────────────────────────────────────────────────────────
+   PROBUS STUDIO — Grand Interactive CTA & Footer (White Theme)
+   Awwwards-inspired modern architectural light footer
+   ───────────────────────────────────────────────────────────── */
+
+.probus-footer-root {
+  position: relative;
+  background-color: #ffffff;
+  color: #090a0f;
+  font-family: 'DM Sans', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  overflow: hidden;
+  user-select: none;
+  border-top: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+/* Background Ambient Glow & Subtle Light Grid */
+.probus-footer-grid-bg {
+  position: absolute;
+  inset: 0;
+  background-image: 
+    radial-gradient(circle at 50% 0%, rgba(217, 112, 62, 0.06) 0%, transparent 55%),
+    radial-gradient(circle at 85% 30%, rgba(91, 97, 207, 0.05) 0%, transparent 50%),
+    linear-gradient(to right, rgba(0, 0, 0, 0.03) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(0, 0, 0, 0.03) 1px, transparent 1px);
+  background-size: 100% 100%, 100% 100%, 80px 80px, 80px 80px;
+  pointer-events: none;
+  opacity: 0.9;
+}
+
+/* Mouse spotlight container */
+.probus-cta-card {
+  position: relative;
+  background: linear-gradient(145deg, #ffffff 0%, #fafafa 100%);
+  border: 1px solid rgba(0, 0, 0, 0.09);
+  border-radius: 28px;
+  overflow: hidden;
+  box-shadow: 0 20px 60px -15px rgba(0, 0, 0, 0.04), 0 2px 6px rgba(0, 0, 0, 0.02);
+  transition: border-color 0.4s ease, box-shadow 0.4s ease;
+}
+
+.probus-cta-card:hover {
+  border-color: rgba(0, 0, 0, 0.16);
+  box-shadow: 0 30px 80px -20px rgba(0, 0, 0, 0.08), 0 0 50px -10px rgba(217, 112, 62, 0.08);
+}
+
+/* Interactive Cursor Radial Follower inside CTA */
+.probus-cursor-glow {
+  position: absolute;
+  pointer-events: none;
+  border-radius: 50%;
+  width: 500px;
+  height: 500px;
+  transform: translate(-50%, -50%);
+  background: radial-gradient(circle, rgba(217, 112, 62, 0.12) 0%, rgba(91, 97, 207, 0.08) 40%, transparent 70%);
+  transition: opacity 0.3s ease;
+  mix-blend-mode: multiply;
+}
+
+/* Headline Kinetic Styling */
+.probus-cta-heading {
+  font-family: 'google-sans', 'Plus Jakarta Sans', sans-serif;
+  font-size: clamp(2.75rem, 6.8vw, 6.75rem);
+  font-weight: 700;
+  line-height: 0.94;
+  letter-spacing: -0.04em;
+  text-transform: uppercase;
+}
+
+.probus-gradient-text {
+  background: linear-gradient(135deg, #090a0f 25%, #27272a 65%, #52525b 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.probus-accent-gradient {
+  background: linear-gradient(135deg, #d9703e 0%, #db2777 50%, #5b61cf 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Magnetic Start Project Button (Dark on Light) */
+.probus-magnetic-btn {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 1.15rem 2.5rem;
+  border-radius: 9999px;
+  background: #090a0f;
+  color: #ffffff;
+  font-weight: 600;
+  font-size: 1rem;
+  letter-spacing: -0.01em;
+  transition: all 0.35s cubic-bezier(0.2, 0.8, 0.2, 1);
+  box-shadow: 0 10px 25px -6px rgba(0, 0, 0, 0.25);
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.probus-magnetic-btn:hover {
+  background: #1c1d22;
+  transform: translateY(-2px) scale(1.03);
+  box-shadow: 0 16px 36px -8px rgba(0, 0, 0, 0.35);
+}
+
+.probus-magnetic-btn:active {
+  transform: translateY(0) scale(0.99);
+}
+
+/* Copy Email Pill Button */
+.probus-email-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 0.85rem 1.75rem;
+  border-radius: 9999px;
+  background: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  color: #18181b;
+  font-size: 0.95rem;
+  font-weight: 500;
+  transition: all 0.25s ease;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.03);
+  cursor: pointer;
+}
+
+.probus-email-pill:hover {
+  background: #f4f4f5;
+  border-color: rgba(0, 0, 0, 0.24);
+  color: #000000;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+}
+
+/* Category Inquiry Filter Tags */
+.probus-inquiry-tag {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.45rem 1rem;
+  border-radius: 9999px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: #52525b;
+  background: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.02);
+  transition: all 0.25s ease;
+  cursor: pointer;
+}
+
+.probus-inquiry-tag:hover {
+  color: #090a0f;
+  background: #f4f4f5;
+  border-color: rgba(0, 0, 0, 0.22);
+}
+
+.probus-inquiry-tag.is-active {
+  color: #ffffff;
+  background: #090a0f;
+  border-color: #090a0f;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.15);
+}
+
+/* Giant Architectural Wordmark (Legacy fallback) */
+.probus-massive-wordmark {
+  font-family: 'google-sans', 'Plus Jakarta Sans', sans-serif;
+  font-size: clamp(3.8rem, 12.8vw, 16.5rem);
+  font-weight: 900;
+  line-height: 0.82;
+  letter-spacing: -0.055em;
+  text-transform: uppercase;
+  text-align: center;
+  white-space: nowrap;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.08) 0%, rgba(0, 0, 0, 0.02) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  margin: 0;
+  padding: 1.5rem 0 0.5rem 0;
+}
+
+.probus-massive-wordmark:hover {
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.24) 0%, rgba(217, 112, 62, 0.22) 50%, rgba(91, 97, 207, 0.18) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  letter-spacing: -0.05em;
+}
+
+/* ─────────────────────────────────────────────────────────────────────────
+   LIQUID WORDMARK BANNER (AWWWARDS-STYLE INTERACTIVE LIQUID WEBGL CANVAS)
+   ───────────────────────────────────────────────────────────────────────── */
+.probus-liquid-wordmark-container {
+  position: relative;
+  width: 100%;
+  max-width: 1360px;
+  height: clamp(95px, 17.5vw, 290px);
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: grab;
+  touch-action: pan-y;
+  isolation: isolate;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+.probus-liquid-wordmark-container:active {
+  cursor: grabbing;
+}
+
+.probus-liquid-stage {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  overflow: visible;
+}
+
+.probus-liquid-canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+  pointer-events: auto;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.probus-liquid-fallback {
+  position: absolute;
+  max-width: 96%;
+  max-height: 94%;
+  object-fit: contain;
+  pointer-events: none;
+  user-select: none;
+  -webkit-user-drag: none;
+  opacity: 1;
+  transition: opacity 0.4s ease;
+}
+
+.probus-liquid-wordmark-container[data-gl="on"] .probus-liquid-canvas {
+  opacity: 1;
+}
+
+.probus-liquid-wordmark-container[data-gl="on"] .probus-liquid-fallback {
+  opacity: 0;
+}
+
+/* Footer Link with subtle arrow reveal */
+.probus-footer-link {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  color: #52525b;
+  font-size: 0.925rem;
+  transition: all 0.25s ease;
+  text-decoration: none;
+}
+
+.probus-footer-link:hover {
+  color: #090a0f;
+  transform: translateX(4px);
+}
+
+.probus-footer-link .probus-link-arrow {
+  opacity: 0;
+  transform: translate(-4px, 4px);
+  transition: all 0.25s ease;
+}
+
+.probus-footer-link:hover .probus-link-arrow {
+  opacity: 1;
+  transform: translate(0, 0);
+}
+
+/* Back to Top button */
+.probus-back-to-top {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 0.65rem 1.25rem;
+  border-radius: 9999px;
+  background: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  color: #27272a;
+  font-size: 0.8rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04);
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.probus-back-to-top:hover {
+  background: #f4f4f5;
+  border-color: rgba(0, 0, 0, 0.24);
+  color: #000000;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.06);
+}
+
+.probus-back-to-top:hover svg {
+  transform: translateY(-3px);
+}
+
+/* Pulsing Status Dot */
+.probus-pulse-dot {
+  position: relative;
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: #059669;
+}
+
+.probus-pulse-dot::after {
+  content: '';
+  position: absolute;
+  inset: -3px;
+  border-radius: 50%;
+  background-color: #059669;
+  opacity: 0.6;
+  animation: probusPing 2s cubic-bezier(0, 0, 0.2, 1) infinite;
+}
+
+@keyframes probusPing {
+  0% { transform: scale(1); opacity: 0.8; }
+  75%, 100% { transform: scale(2.4); opacity: 0; }
+}
+
+@media (max-width: 768px) {
+  .probus-cta-card {
+    border-radius: 20px;
+    padding: 1.5rem 1.25rem;
+  }
+}

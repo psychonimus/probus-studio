@@ -1,0 +1,39 @@
+
+.reveal-text {
+  color: inherit;
+}
+
+.reveal-text.gradient-text .reveal-char {
+  background: inherit;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.reveal-char {
+  position: relative;
+  display: inline-block;
+  opacity: 0;
+  color: inherit;
+}
+
+.char-highlight {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+
+  background: linear-gradient(
+    90deg,
+    #f6d5a3 0%,
+    #f5a34a 45%,
+    #d84722 100%
+  );
+
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+  filter: drop-shadow(0 0 5px rgba(245, 163, 74, 0.25));
+}
+
+

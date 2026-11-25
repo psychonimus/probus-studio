@@ -1,0 +1,239 @@
+@import url("https://fonts.googleapis.com/css2?family=Archivo+Black&family=DM+Sans:wght@500;600;700&display=swap");
+
+:root {
+    --ink: #090a0f;
+    --paper: #ffffff;
+    --line: rgba(0, 0, 0, 0.08);
+}
+
+* {
+    box-sizing: border-box;
+}
+
+.trusted-by {
+    position: relative;
+    isolation: isolate;
+    display: grid;
+    align-content: center;
+    gap: 1.5rem;
+    min-height: min(49rem, 100vh);
+    overflow: hidden;
+    padding: 3rem 0;
+    background: var(--paper);
+    color: var(--ink);
+}
+
+/* Soft fade keeps the moving cards behind the headline instead of competing with it. */
+.trusted-by::before {
+    position: absolute;
+    z-index: 1;
+    inset: 0;
+    pointer-events: none;
+    content: "";
+    background: radial-gradient(ellipse 42% 48% at center, #ffffff 20%, rgba(255, 255, 255, 0.94) 48%, rgba(255, 255, 255, 0) 82%);
+}
+
+.trusted-rail-mask {
+    overflow: hidden;
+}
+
+.trusted-rail {
+    display: flex;
+    width: max-content;
+    gap: 1.5rem;
+    will-change: transform;
+}
+
+.trusted-logo-card {
+    display: grid;
+    flex: 0 0 clamp(10.5rem, 18vw, 17rem);
+    width: clamp(10.5rem, 18vw, 17rem);
+    height: clamp(9rem, 16vw, 15rem);
+    place-items: center;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    background: #ffffff;
+    border-radius: 20px;
+    box-shadow: 0 4px 20px -6px rgba(0, 0, 0, 0.03);
+    transition: all 0.3s ease;
+}
+
+.trusted-logo-card:hover {
+    border-color: rgba(0, 0, 0, 0.18);
+    transform: translateY(-2px);
+    box-shadow: 0 12px 30px -8px rgba(0, 0, 0, 0.06);
+}
+
+.trusted-wordmark {
+    display: grid;
+    align-items: center;
+    justify-items: center;
+    line-height: 0.85;
+    text-align: center;
+}
+
+.trusted-wordmark strong {
+    font: 700 clamp(1.1rem, 2vw, 1.8rem)/0.9 "DM Sans", sans-serif;
+    letter-spacing: -0.08em;
+}
+
+.trusted-wordmark small {
+    font: 600 0.5rem/1 "DM Sans", sans-serif;
+    letter-spacing: 0.04em;
+}
+
+.trusted-wordmark.jetour strong {
+    font-weight: 700;
+    letter-spacing: 0.12em;
+}
+
+.trusted-wordmark.jetour small {
+    order: 2;
+    margin-top: 0.35rem;
+    letter-spacing: 0.12em;
+}
+
+.trusted-wordmark.flyadeal {
+    grid-template-columns: auto auto;
+    gap: 0.3rem;
+    color: #303634;
+}
+
+.trusted-wordmark.flyadeal small {
+    font-size: 2.1rem;
+    font-weight: 800;
+}
+
+.trusted-wordmark.flyadeal strong {
+    font-size: clamp(1.5rem, 2.6vw, 2.5rem);
+}
+
+.trusted-wordmark.formula {
+    transform: skew(-13deg);
+}
+
+.trusted-wordmark.formula strong {
+    font-style: italic;
+    font-weight: 600;
+    letter-spacing: -0.12em;
+}
+
+.trusted-wordmark.ministry strong {
+    font-size: clamp(0.8rem, 1.35vw, 1.15rem);
+    letter-spacing: 0.08em;
+}
+
+.trusted-wordmark.ministry small {
+    order: 2;
+    margin-top: 0.4rem;
+    font-weight: 500;
+}
+
+.trusted-wordmark.extend {
+    grid-template-columns: auto auto;
+    gap: 0.35rem;
+}
+
+.trusted-wordmark.extend small {
+    width: 2rem;
+    text-align: left;
+    font-size: 0.38rem;
+}
+
+.trusted-wordmark.onsor strong {
+    letter-spacing: -0.12em;
+}
+
+.trusted-wordmark.onsor small {
+    order: 2;
+    margin-top: 0.25rem;
+}
+
+.trusted-wordmark.darco {
+    grid-template-columns: auto auto;
+    gap: 0.25rem;
+}
+
+.trusted-wordmark.darco small {
+    order: 2;
+    font-size: 3rem;
+    font-weight: 400;
+}
+
+.trusted-wordmark.redsea strong {
+    font-size: clamp(0.7rem, 1vw, 0.9rem);
+    letter-spacing: 0.05em;
+}
+
+.trusted-wordmark.redsea small {
+    order: 2;
+    margin-top: 0.35rem;
+    font-size: 0.38rem;
+}
+
+.trusted-copy {
+    position: absolute;
+    z-index: 2;
+    top: 50%;
+    left: 50%;
+    width: min(90%, 40rem);
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+.trusted-copy h2 {
+    margin: 0;
+    font: 400 clamp(3.6rem, 6vw, 8.75rem)/0.79 "Archivo Black", Impact, sans-serif;
+    letter-spacing: -0.095em;
+}
+
+.trusted-copy p {
+    margin: 1.25rem 0 0;
+    font: 700 clamp(0.9rem, 1.35vw, 1.15rem)/1.05 "DM Sans", sans-serif;
+    letter-spacing: -0.06em;
+}
+
+.trusted-copy .trusted-eyebrow {
+    margin-bottom: 1rem;
+    font-size: 0.63rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+}
+
+@media (max-width: 640px) {
+    .trusted-by {
+        gap: 1rem;
+        min-height: 38rem;
+    }
+
+    .trusted-logo-card {
+        flex-basis: 9rem;
+        width: 9rem;
+        height: 8rem;
+    }
+
+    .trusted-rail {
+        gap: 1rem;
+    }
+
+    .trusted-copy h2 {
+        font-size: clamp(3rem, 16vw, 5.4rem);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .trusted-rail {
+        transform: none !important;
+    }
+}
+.grad-text {
+  background: linear-gradient(
+    to right,
+    #d97706,
+    #e11d48,
+    #4f46e5
+  );
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+}

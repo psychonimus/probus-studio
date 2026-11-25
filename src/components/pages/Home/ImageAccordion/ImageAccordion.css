@@ -1,0 +1,402 @@
+/* ──────────────────────────────────────────
+   ImageAccordion — Section wrapper
+────────────────────────────────────────── */
+.ia-section {
+  width: 100%;
+  /* padding: 64px 40px; */
+  box-sizing: border-box;
+  /* background: #f5f5f5; */
+  }
+
+/* ──────────────────────────────────────────
+   Flex strip
+────────────────────────────────────────── */
+.ia-wrapper {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  height: 520px;
+  border-radius: 20px;
+  overflow: hidden;
+  /* max-width: 1280px; */
+  margin: 0 auto;
+}
+
+/* ──────────────────────────────────────────
+   Individual panel
+────────────────────────────────────────── */
+.ia-panel {
+  position: relative;
+  flex: 1;
+  overflow: hidden;
+  border-radius: 16px;
+  cursor: pointer;
+  border: 1.5px solid #ffffff3e;
+  transition: flex 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+/* ──────────────────────────────────────────
+   Image
+────────────────────────────────────────── */
+.ia-img-wrap {
+  position: absolute;
+  inset: 0;
+  will-change: transform;
+}
+
+.ia-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+  pointer-events: none;
+  user-select: none;
+}
+
+/* ──────────────────────────────────────────
+   Gradient overlay
+────────────────────────────────────────── */
+.ia-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.72) 0%,
+    rgba(0, 0, 0, 0.18) 45%,
+    transparent 100%
+  );
+  pointer-events: none;
+  border-radius: inherit;
+}
+
+/* ──────────────────────────────────────────
+   Label container
+────────────────────────────────────────── */
+.ia-label {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: flex-end;
+  padding: 22px 20px;
+  pointer-events: none;
+}
+
+/* Vertical rotated label — shown when panel is collapsed */
+.ia-label-vertical {
+  position: absolute;
+  bottom: 28px;
+  left:50%;
+  transform: translateX(-50%) rotate(0deg);
+  transform-origin: center center;
+  white-space: nowrap;
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 13px;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  text-shadow: 0 1px 4px rgba(0,0,0,0.5);
+  transition: opacity 0.35s ease;
+}
+
+/* Bottom horizontal label — shown when panel is expanded */
+.ia-label-bottom {
+  position: absolute;
+  bottom: 22px;
+  left: 22px;
+  right: 22px;
+  pointer-events: auto;
+  z-index: 10;
+  transition: opacity 0.4s ease 0.1s, transform 0.4s ease 0.1s;
+}
+
+.ia-label-title {
+  margin: 0;
+  font-family: 'Inter', 'Segoe UI', sans-serif;
+  font-size: 25px;
+  font-weight: 600;
+  color: #ffffff;
+  letter-spacing: -0.01em;
+  line-height: 1.3;
+  text-shadow: 0 2px 8px rgba(0,0,0,0.4);
+}
+
+.ia-label-subtitle {
+  margin: 4px 0 0;
+  font-family: 'Inter', 'Segoe UI', sans-serif;
+  font-size: 12px;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.65);
+  letter-spacing: 0.04em;
+  text-shadow: 0 1px 4px rgba(0,0,0,0.4);
+}
+
+/* ──────────────────────────────────────────
+   Corner number badge
+────────────────────────────────────────── */
+.ia-number {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  font-family: 'Inter', 'Segoe UI', sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.55);
+  letter-spacing: 0.08em;
+  pointer-events: none;
+  text-shadow: 0 1px 4px rgba(0,0,0,0.4);
+  transition: opacity 0.35s ease;
+}
+
+/* ──────────────────────────────────────────
+   Active / Idle state visual cues
+────────────────────────────────────────── */
+.ia-panel--active .ia-overlay {
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.75) 40%,
+    rgba(0, 0, 0, 0.08) 75%,
+    transparent 100%
+  );
+}
+
+.ia-panel--idle .ia-overlay {
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.55) 0%,
+    rgba(0, 0, 0, 0.35) 100%
+  );
+  /* subtle desaturate on idle */
+  backdrop-filter: saturate(0.7);
+}
+
+.ia-panel--idle .ia-img {
+  filter: brightness(0.75) saturate(0.6);
+  transition: filter 0.5s ease;
+}
+
+.ia-panel--active .ia-img {
+  filter: brightness(1.05) saturate(1.1);
+  transition: filter 0.5s ease;
+}
+
+/* ──────────────────────────────────────────
+   Responsive
+────────────────────────────────────────── */
+@media (max-width: 1024px) {
+  .ia-wrapper {
+    height: 460px;
+  }
+
+  .ia-label-title {
+    font-size: 20px;
+  }
+
+  .ia-label-subtitle {
+    font-size: 11px;
+  }
+}
+
+@media (max-width: 768px) {
+  .ia-section {
+    padding: 36px 0;
+  }
+
+  .ia-wrapper {
+    flex-direction: column;
+    height: auto;
+    gap: 16px;
+  }
+
+  .ia-panel {
+    height: 320px;
+    flex: unset !important;
+    border-radius: 14px;
+  }
+
+  .ia-panel--active {
+    height: 320px !important;
+  }
+
+  /* Enhanced contrast overlay on mobile */
+  .ia-overlay,
+  .ia-panel--active .ia-overlay,
+  .ia-panel--idle .ia-overlay {
+    background: linear-gradient(
+      to top,
+      rgba(0, 0, 0, 0.96) 0%,
+      rgba(0, 0, 0, 0.88) 42%,
+      rgba(0, 0, 0, 0.6) 72%,
+      rgba(0, 0, 0, 0.22) 100%
+    );
+    backdrop-filter: none;
+  }
+
+  .ia-panel--idle .ia-img,
+  .ia-panel--active .ia-img {
+    filter: none;
+  }
+
+  .ia-number {
+    opacity: 0.85 !important;
+    color: rgba(255, 255, 255, 0.85);
+  }
+
+  .ia-label-vertical {
+    display: none;
+  }
+
+  .ia-label-bottom {
+    opacity: 1 !important;
+    transform: translateY(0) !important;
+    left: 18px;
+    right: 18px;
+    bottom: 18px;
+  }
+
+  .ia-label-title {
+    font-size: 20px;
+    font-weight: 700;
+    color: #ffffff;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.85), 0 1px 3px rgba(0, 0, 0, 0.9);
+  }
+
+  .ia-label-subtitle {
+    font-size: 12px;
+    line-height: 1.5;
+    color: rgba(255, 255, 255, 0.88);
+    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.85);
+  }
+}
+
+@media (max-width: 480px) {
+  .ia-section {
+    padding: 24px 0;
+  }
+
+  .ia-panel {
+    height: 310px;
+  }
+
+  .ia-panel--active {
+    height: 310px !important;
+  }
+
+  .ia-overlay,
+  .ia-panel--active .ia-overlay,
+  .ia-panel--idle .ia-overlay {
+    background: linear-gradient(
+      to top,
+      rgba(0, 0, 0, 0.98) 0%,
+      rgba(0, 0, 0, 0.9) 46%,
+      rgba(0, 0, 0, 0.62) 75%,
+      rgba(0, 0, 0, 0.25) 100%
+    );
+  }
+
+  .ia-label-title {
+    font-size: 18px;
+  }
+
+  .ia-label-subtitle {
+    font-size: 11.5px;
+    line-height: 1.45;
+    color: rgba(255, 255, 255, 0.9);
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+}
+
+
+
+button {
+ position: relative;
+ display: inline-block;
+ cursor: pointer;
+ outline: none;
+ border: 0;
+ vertical-align: middle;
+ text-decoration: none;
+ background: transparent;
+ padding: 0;
+ font-size: inherit;
+ font-family: inherit;
+}
+
+button.learn-more {
+ width: 12rem;
+ height: auto;
+}
+
+button.learn-more .circle {
+ transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
+ position: relative;
+ display: block;
+ margin: 0;
+ width: 3rem;
+ height: 3rem;
+ background: #D4A04A;
+ border-radius: 1.625rem;
+}
+
+button.learn-more .circle .icon {
+ transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
+ position: absolute;
+ top: 0;
+ bottom: 0;
+ margin: auto;
+ background: #fff;
+}
+
+button.learn-more .circle .icon.arrow {
+ transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
+ left: 0.625rem;
+ width: 1.125rem;
+ height: 0.125rem;
+ background: none;
+}
+
+button.learn-more .circle .icon.arrow::before {
+ position: absolute;
+ content: "";
+ top: -0.29rem;
+ right: 0.0625rem;
+ width: 0.625rem;
+ height: 0.625rem;
+ border-top: 0.125rem solid #fff;
+ border-right: 0.125rem solid #fff;
+ transform: rotate(45deg);
+}
+
+button.learn-more .button-text {
+ transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
+ position: absolute;
+ top: 0;
+ left: 0;
+ right: 0;
+ bottom: 0;
+ padding: 0.75rem 0;
+ margin: 0 0 0 1.85rem;
+ color: #D4A04A;
+ font-size: 15px;
+ font-weight: 700;
+ line-height: 1.6;
+ text-align: center;
+ text-transform: uppercase;
+}
+
+button:hover .circle {
+ width: 100%;
+}
+
+button:hover .circle .icon.arrow {
+ background: #fff;
+ transform: translate(1rem, 0);
+}
+
+button:hover .button-text {
+ color: #fff;
+}
+

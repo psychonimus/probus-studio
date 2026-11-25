@@ -1,0 +1,66 @@
+.filament-text {
+  position: relative;
+  display: block;
+}
+
+/* Both copies use the SAME split typography and layout. */
+.filament-text .filament-final,
+.filament-text .filament-renderer {
+  display: block;
+  white-space: inherit;
+  font: inherit;
+  letter-spacing: inherit;
+  line-height: inherit;
+  text-align: inherit;
+}
+
+.filament-text .filament-final {
+  position: relative;
+  z-index: 2;
+  opacity: 0;
+  background: none;
+  color: inherit;
+  -webkit-text-fill-color: currentColor;
+}
+
+/* Continuous heading gradient is positioned across split chars in JSX. */
+.filament-text .filament-final .char {
+  -webkit-background-clip: text;
+  background-clip: text;
+}
+
+.filament-text .filament-renderer {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background: none;
+  color: inherit;
+  -webkit-text-fill-color: currentColor;
+}
+
+.filament-text .filament-renderer [data-line] {
+  display: block;
+  margin: 0;
+}
+
+/* Renderer DOM is for measurement only. Canvas draws the animation. */
+.filament-text .filament-renderer [data-line],
+.filament-text .filament-renderer [data-line] * {
+  color: transparent !important;
+  -webkit-text-fill-color: transparent !important;
+}
+
+.filament-text .filament-renderer .gl-text {
+  position: absolute;
+  display: none;
+  pointer-events: none;
+}
+.filament-text .filament-renderer .gl-text.is-visible {
+  display: block;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .filament-text .filament-final { opacity: 1; }
+  .filament-text .filament-renderer { display: none; }
+}
